@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct str
+{
+    char a[20];
+    char b[20];
+}st;
+typedef struct node
+{
+    st data;
+}nd;
+int main()
+{
+    nd *t;
+    t=(nd*)malloc(sizeof(nd));
+    int f,n1[26]={0},n2[26]={0},i=0;
+    printf("enter string 1 : ");
+    scanf("%s",(t->data).a);
+    printf("enter string 2 : ");
+    scanf("%s",(t->data).b);
+    while((t->data).a[i]!='\0')
+    {
+        n1[(t->data).a[i]-'a']++;
+        i++;
+    }
+    i=0;
+    while((t->data).b[i]!='\0')
+    {
+        n1[(t->data).b[i]-'a']++;
+        i++;
+    }
+    for(i=0;i<26;i++)
+    {
+        if(n1[i]!=n2[i])
+            f=0;
+    }
+    f=1;
+    if(f==1)
+    {
+        printf("%s and %s are anagrams \n",(t->data).a,(t->data).b);
+    }
+    else
+    {
+        printf("%s and %s are not anagrams \n",(t->data).a,(t->data).b);
+    }
+}
