@@ -11,8 +11,9 @@ struct book
     int no_pages;
 };
 typedef struct book B;
-void read_book(B a[],int n)
+void read(B a[],int n)
 {
+    printf("Enter the title, author name, price and number of pages in order");
     for(int i=0;i<n;i++)
     {
         scanf("%s%s%f%d",a[i].book_title,a[i].author,&(a[i].price),&(a[i].no_pages));
@@ -30,7 +31,7 @@ void search(B a[],int n,char key[])
     int price;
     for(int i=0;i<n;i++)
     {
-        if(strcmp(a[i].book_title,key))
+        if(strcmp(a[i].book_title,key)==0)
         {
             printf("Search Sucessfull !\n");
             printf("Enter the new price\n");
@@ -39,7 +40,10 @@ void search(B a[],int n,char key[])
             return;
         }
         else
+        {
             printf("Search Unsucessfull !\n");
+            break;
+        }
     }
 }
 int main()
@@ -49,24 +53,9 @@ int main()
     char key[10];
     printf("Enter the number of books\n");
     scanf("%d",&n);
-    printf("Enter the values as Book Title,Author,Price,No of pages\n");
-    read_book(a,n);
-    while(1)
-    {
-        printf("Enter the choices\n1.Read\n2.Display\n3.Search\n4.Exit\n");
-        scanf("%d",&ch);
-        switch(ch)
-        {
-            case 1:read_book(a,n+1);
-                break;
-            case 2:diplay(a,n);
-                break;
-            case 3:printf("Enter the title to search\n");
-                scanf("%s",key);
-                search(a,n,key);
-                break;
-            case 4:exit(0);
-            default:printf("Enter a valid choice\n");
-        }
-    }
+    read(a,n);
+    diplay(a,n);
+    printf("Enter the title to search\n");
+    scanf("%s",key);
+    search(a,n,key);
 }
