@@ -1,0 +1,21 @@
+//Consider :: the use case of a book stall and following details book_id, book_title, author, price*/
+
+#include <stdio.h>
+
+struct book
+{
+    char title[10];
+    char author[10];
+    float price;
+    int id;
+};
+
+
+int main()
+{
+    struct book bk;
+    printf("Enter the title, author name, price and page no. in order\n");
+     scanf("%s%s%f%d", bk.title,bk.author,&bk.price,&bk.id);               
+     printf("The book details are\n");
+     printf("%s\t%s\t%f\t%d", bk.title , bk.author, bk.price, bk.id); 
+}
