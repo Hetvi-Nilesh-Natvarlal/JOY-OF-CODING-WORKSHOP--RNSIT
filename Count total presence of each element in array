@@ -1,0 +1,38 @@
+#include <stdio.h> 
+int main()
+{
+	int arr[10], FreqArr[10], i, j, c, n;
+	printf("\n Enter Number of elements in an array  :   ");
+	scanf("%d", &n);
+	printf("\n Enter elements of an Array  :  ");
+	for (i = 0; i < n; i++)
+	{
+    	scanf("%d", &arr[i]);
+    	FreqArr[i] = -1;
+  }     
+	for (i = 0; i < n; i++)
+	{
+		c = 1;
+		for(j = i + 1; j < n; j++)
+		{
+    		if(arr[i] == arr[j])
+    		{
+    			c++;
+    			FreqArr[j] = 0;
+    		}
+    }
+    if(FreqArr[i] != 0)
+    {
+    		FreqArr[i] = c;
+		}
+	}
+ 	printf("\n Frequency of All the Elements in this Array are : \n");
+ 	for (i = 0; i < n; i++)
+  {
+  		if(FreqArr[i] != 0)
+  		{
+  			printf("%d Occurs %d Times \n", arr[i], FreqArr[i]);
+		  }		
+  }	     
+ 	return 0;
+}
